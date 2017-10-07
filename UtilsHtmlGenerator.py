@@ -33,7 +33,6 @@ def analyzeTag(cv2img, tagsAvailable=reservedtags):
     cv2img = cv2.cvtColor(cv2img, cv2.COLOR_RGB2GRAY)
 
     ret, thresh = cv2.threshold(cv2img, 127, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    # Image.fromarray(thresh).show()
     instrucao = ocr.image_to_string(Image.fromarray(thresh), lang='por')
     if instrucao != '':
         for tag, value in tagsAvailable.items():
@@ -41,8 +40,6 @@ def analyzeTag(cv2img, tagsAvailable=reservedtags):
                 instrucao = instrucao.replace('jumbo + ', '')
                 dictparams['appendClass'] = 'jumbotron'
             if instrucao.startswith(tag):
-                #if tag == 'fundo : ':
-                    #instrucao = ocr.image_to_string(Image.fromarray(thresh))
                 dictparams['dadosTag'] = instrucao.replace(tag, '').replace('\n', '<br>')
                 return value.format(**dictparams)
     return ''
