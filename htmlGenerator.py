@@ -8,7 +8,7 @@ HTML = """
 <!DOCTYPE html>
 <html lang="por">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>%s</title>
 </head>
